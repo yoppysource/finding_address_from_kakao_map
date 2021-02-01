@@ -8,7 +8,7 @@ const indexHTML = fs.readFileSync(
   "utf-8"
 );
 
-app.set("port", process.env.PORT || 3000);
+app.set("port", process.env.PORT || 8080);
 app.use("/kakao/:lat/:long", express.static(path.join(__dirname, "public")));
 
 app.get("/kakao/:lat/:long", (req, res) => {
@@ -22,6 +22,6 @@ app.get("/kakao/:lat/:long", (req, res) => {
   res.end(temp);
 });
 
-app.listen(3000, () => {
+app.listen(8080, () => {
   console.log("3000");
 });
