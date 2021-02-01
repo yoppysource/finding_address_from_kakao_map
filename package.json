@@ -1,14 +1,18 @@
 {
-  "name": "kakao_node",
-  "version": "1.0.0",
-  "description": "",
+  "name": "kakao_map_node",
+  "version": "0.0.1",
+  "description": "Using kakao map to flutter project with web view",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Yoppy",
+  "license": "MIT",
   "dependencies": {
     "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
   }
 }

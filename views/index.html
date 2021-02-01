@@ -2,12 +2,17 @@
 <html>
   <head>
     <meta charset="UTF-8" />
-    <title>Kakao 지도 시작하기</title>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, user-scalable=no"
+    />
+    <title>Kakao Map</title>
+
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css"
     />
-    <link rel="stylesheet" href="public/style.css" />
+    <link rel="stylesheet" href="css/master.css" />
   </head>
   <body>
     <div class="container">
@@ -24,14 +29,15 @@
     </div>
     <script
       type="text/javascript"
-      src="//dapi.kakao.com/v2/maps/sdk.js?appkey=ace10611f290b696eaae9939138256b4&libraries=services"
+      src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=8906a95a14168cae619e6f225144ea26&libraries=services"
     ></script>
     <script>
       var container = document.getElementById("map");
       const deliveryPossibleBtn = document.querySelector("#delivery-possible");
       const submitButton = document.querySelector(".submit");
       const address = document.querySelector(".display-address");
-      const rejectMessage = "배송이 불가능한 지역입니다.";
+      const rejectMessage =
+        "배송이 불가능한 지역입니다.</br>현재는 경기도 일부 지역에서만 가능합니다.";
       const errorMessage = "정확한 위치에 맞춰주세요.";
 
       let selectedAddress;
@@ -57,8 +63,9 @@
       // 마커가 표시될 위치입니다
       var farmPosition = new kakao.maps.LatLng(37.4283361, 127.146518);
 
-      const lat = 37.4583361;
-      const long = 127.166518;
+      var lat = "{%LAT%}";
+      var long = "{%LONG%}";
+      console.log(lat);
       init(lat, long);
 
       function init(lat, long) {
@@ -120,7 +127,7 @@
             geocoder.coord2Address(position.La, position.Ma, callback);
             isAvailable = false;
           } else {
-            address.innerText = rejectMessage;
+            address.innerHTML = rejectMessage;
           }
         });
 
